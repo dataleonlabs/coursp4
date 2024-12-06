@@ -1,9 +1,5 @@
-/ Importation de la biblioth  que node-fetch (assurez-vous qu'elle est install  e)
-// Importation de la biblioth  que Axios
 const axios = require('axios');
 
-
-// Fonction principale pour envoyer la requ  te
 const fetchInterpolData = async (forename, name) => {
     const url = `https://ws-public.interpol.int/notices/v1/red?forename=${forename}&name=${name}`;
     try {
@@ -27,12 +23,9 @@ const fetchInterpolData = async (forename, name) => {
             }
         });
 
-        // Affichage des r  sultats
-        console.log('R  sultats de la recherche :', JSON.stringify(response.data, null, 2));
+        console.log('Resultats de la recherche :', JSON.stringify(response.data, null, 2));
     } catch (error) {
-        // Gestion des erreurs
         if (error.response) {
-            // Erreur renvoy  e par le serveur (statut HTTP)
             console.error(`Erreur HTTP : ${error.response.status} - ${error.response.statusText}`);
         } else {
             // Erreur de configuration ou de r  seau
@@ -43,6 +36,5 @@ const fetchInterpolData = async (forename, name) => {
 
 exports.fetchInterpolData = fetchInterpolData
 
-// Ex  cution de la fonction
 fetchInterpolData("Mohamed", "Mustermann");
 
